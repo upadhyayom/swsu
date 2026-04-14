@@ -219,9 +219,13 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	} );
 }
 
-/* ------------------- Public one-shot trigger ------------------- */
+/* ------------------- Auto-Execution (Hostinger Bypass) ------------------- */
 add_action( 'init', function() {
-	if ( empty( $_GET['skinluxe_seed'] ) ) return;
-	// Warning: Disabled auth check temporarily so user can run it
-	skinluxe_seed_products( false );
+	if ( ! get_option( 'swsu_seeded_final_11' ) ) {
+		skinluxe_seed_products( false );
+		if ( function_exists( 'skinluxe_seed_core_pages' ) ) {
+			skinluxe_seed_core_pages();
+		}
+		update_option( 'swsu_seeded_final_11', true );
+	}
 } );
