@@ -96,8 +96,13 @@ add_action( 'wp_enqueue_scripts', 'skinluxe_enqueue_assets' );
  * 3. Load Modules
  * ------------------------------------------------------------------------- */
 require_once SKINLUXE_DIR . '/inc/taxonomies.php';
-require_once SKINLUXE_DIR . '/inc/ajax-cart.php';
-require_once SKINLUXE_DIR . '/inc/product-seeder.php';
+
+/**
+ * 8. Product Seeder & Page Seeder
+ * Installs canonical dummy products and pages.
+ */
+require_once get_template_directory() . '/inc/product-seeder.php';
+require_once get_template_directory() . '/inc/page-seeder.php';
 
 /* -------------------------------------------------------------------------
  * 4. WooCommerce Layout Tweaks

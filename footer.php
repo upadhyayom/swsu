@@ -24,9 +24,9 @@ defined( 'ABSPATH' ) || exit;
 		<div class="sl-footer__col">
 			<h4>Help</h4>
 			<ul>
-				<li><a href="#">Shipping</a></li>
-				<li><a href="#">Returns</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>">Shipping & Returns</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">Our Philosophy</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
 			</ul>
 		</div>
 		<div class="sl-footer__col">
@@ -39,6 +39,10 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 	<div class="sl-footer__legal sl-container">
 		<small>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</small>
+		<div class="sl-footer__legal-links">
+			<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>
+			<a href="<?php echo esc_url( home_url( '/terms-of-service/' ) ); ?>">Terms of Service</a>
+		</div>
 	</div>
 </footer>
 
