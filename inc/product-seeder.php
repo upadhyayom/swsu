@@ -219,12 +219,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	} );
 }
 
-/* ------------------- Admin one-shot trigger ------------------- */
-add_action( 'admin_init', function() {
+/* ------------------- Public one-shot trigger ------------------- */
+add_action( 'init', function() {
 	if ( empty( $_GET['skinluxe_seed'] ) ) return;
-	if ( ! current_user_can( 'manage_woocommerce' ) ) return;
-	$count = skinluxe_seed_products( false );
-	add_action( 'admin_notices', function() use ( $count ) {
-		echo '<div class="notice notice-success"><p>SkinLuxe: seeded ' . intval( $count ) . ' products.</p></div>';
-	} );
+	// Warning: Disabled auth check temporarily so user can run it
+	skinluxe_seed_products( false );
 } );

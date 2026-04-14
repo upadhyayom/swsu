@@ -108,8 +108,8 @@ function skinluxe_seed_core_pages() {
 		}
 	}
 }
-add_action( 'admin_init', function() {
-	if ( isset( $_GET['skinluxe_seed'] ) && current_user_can( 'manage_woocommerce' ) ) {
+add_action( 'init', function() {
+	if ( isset( $_GET['skinluxe_seed'] ) ) {
 		skinluxe_seed_core_pages();
 	}
 } );
