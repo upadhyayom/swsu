@@ -1,13 +1,165 @@
 /*
-Theme Name: SkinLuxe
-Theme URI: https://example.com/skinluxe
-Author: Om Upadhyay
-Description: Premium, minimalist WooCommerce theme for skincare & grooming. Inspired by Zara, Dior, Apple.
+Theme Name: Swsu Elementor Premium
+Theme URI: https://swsu.com/
+Author: Viren / Evolabs Research
+Author URI: https://evolabs.io/
+Description: Fast, lightweight, completely Elementor-compatible theme custom built for the luxury Swsu brand.
 Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.4
 Requires PHP: 7.4
-License: GPL-2.0-or-later
-Text Domain: skinluxe
-Tags: e-commerce, woocommerce, minimalist, luxury, skincare
+Text Domain: swsu-elementor
+Tags: elementor, e-commerce, custom-colors, custom-menu, featured-images, flexible-header, full-width-template
 */
 
-/* This file is required by WordPress. Real styles live in /assets/css/main.css */
+/* 
+ * ----------------------------------------------------
+ * Base Theme CSS - Loaded globally for Elementor Native UI
+ * ----------------------------------------------------
+ */
+
+:root {
+	--swsu-olive: #5B664D;
+	--swsu-olive-dark: #2B3525;
+	--swsu-cream: #FAF9F7;
+	--swsu-white: #FFFFFF;
+	--swsu-ink: #111111;
+	--swsu-muted: #8A8683;
+	--swsu-line: #E7E4DF;
+	--font-sans: 'Inter', sans-serif;
+	--font-serif: 'Cormorant Garamond', serif;
+}
+
+body {
+	font-family: var(--font-sans);
+	color: var(--swsu-ink);
+	background-color: var(--swsu-cream);
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-serif);
+	font-weight: 400;
+	margin-top: 0;
+}
+
+a {
+	color: var(--swsu-olive-dark);
+	text-decoration: none;
+	transition: opacity 0.3s ease;
+}
+
+a:hover {
+	opacity: 0.7;
+}
+
+/* 
+ * ----------------------------------------------------
+ * Clean WooCommerce Overrides
+ * ----------------------------------------------------
+ */
+.woocommerce button.button.alt,
+.woocommerce-page button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce-page input.button.alt,
+.woocommerce #respond input#submit.alt,
+.woocommerce-page #respond input#submit.alt,
+.woocommerce #content input.button.alt,
+.woocommerce-page #content input.button.alt,
+.woocommerce a.button.alt,
+.woocommerce-page a.button.alt {
+	background-color: var(--swsu-olive-dark) !important;
+	color: var(--swsu-white) !important;
+	border-radius: 4px;
+	padding: 14px 24px;
+	font-family: var(--font-sans);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: background-color 0.3s ease;
+}
+
+.woocommerce button.button.alt:hover {
+	background-color: var(--swsu-olive) !important;
+}
+
+/* 
+ * ----------------------------------------------------
+ * Luxury WooCommerce Product Page (Colorbar/Faceshop style)
+ * ----------------------------------------------------
+ */
+.single-product div.product {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	max-width: 1200px;
+	margin: 0 auto;
+	align-items: flex-start;
+}
+@media (max-width: 768px) {
+	.single-product div.product {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+}
+
+.single-product div.product .woocommerce-product-gallery {
+	position: sticky;
+	top: 100px;
+	width: 100% !important;
+	float: none !important;
+}
+
+.single-product div.product .summary.entry-summary {
+	width: 100% !important;
+	float: none !important;
+	padding-top: 20px;
+}
+
+.single-product .product_title {
+	font-family: var(--font-serif);
+	font-size: 36px;
+	color: var(--swsu-ink);
+	margin-bottom: 10px;
+}
+
+.single-product .price {
+	font-size: 24px !important;
+	color: var(--swsu-olive-dark) !important;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.single-product .woocommerce-product-details__short-description {
+	font-size: 15px;
+	color: var(--swsu-muted);
+	line-height: 1.6;
+	margin-bottom: 30px;
+	border-bottom: 1px solid var(--swsu-line);
+	padding-bottom: 20px;
+}
+
+.single-product form.cart {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 40px;
+	align-items: center;
+}
+
+.single-product form.cart .quantity input.qty {
+	height: 48px;
+	width: 60px;
+	border: 1px solid var(--swsu-line);
+	border-radius: 4px;
+	text-align: center;
+}
+
+.single-product form.cart button.single_add_to_cart_button {
+	flex: 1;
+	height: 48px;
+	background: var(--swsu-olive-dark) !important;
+	font-size: 14px;
+}
